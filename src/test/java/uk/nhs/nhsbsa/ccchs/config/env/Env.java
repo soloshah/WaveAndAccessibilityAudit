@@ -109,6 +109,27 @@ public class Env
 				driver.manage().window().maximize();
 				break;
 				
+
+			case "chrome_wave":
+				
+				String userhomepath = (System.getProperty("user.home")).replace("\\", "//");
+				
+				String chromeDriverWavePath = "src//test//resources//drivers//chromedriver.exe";
+				System.setProperty("webdriver.chrome.driver", chromeDriverWavePath);
+				ChromeOptions waveoptions = new ChromeOptions();
+				waveoptions.addArguments("disable-infobars");
+				waveoptions.addArguments("start-maximized");
+				
+				// Invoke the WAVE toolbar on browser launch
+				waveoptions.addArguments("--load-extension=" + userhomepath + "//AppData//Local//Google//Chrome//User Data//Default//Extensions//jbbplnpkjmmeebjpijfedlgcdilocofh//1.0.9_0");
+				
+				DesiredCapabilities wavecapabilities = DesiredCapabilities.chrome();    
+				wavecapabilities.setCapability(ChromeOptions.CAPABILITY, waveoptions);
+				driver = new ChromeDriver(wavecapabilities);
+				
+				driver.manage().window().maximize();
+				break;
+				
 			case "ph":
 			case "phantomjs":
 				String phantomjsDriverPath = "src//test//resources//drivers//phantomjs.exe";
