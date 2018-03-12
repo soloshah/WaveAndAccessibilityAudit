@@ -1,4 +1,4 @@
-# Cucumber tests
+# Cucumber tests to incoporate WAVE & Google Accessibility Audits
 
 ## Setup
 
