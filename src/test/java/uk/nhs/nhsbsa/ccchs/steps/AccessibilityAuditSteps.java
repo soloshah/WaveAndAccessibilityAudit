@@ -81,8 +81,10 @@ public class AccessibilityAuditSteps implements BaseTest
 		
 		Map<String, Object> audit_report = new HashMap<String, Object>();
 		
-		jquery_content = Jsoup.connect(EnvConfig.getJquerycdnurl()).ignoreContentType(true).execute().body();
-		accessibility_content = Jsoup.connect(EnvConfig.getApplicationcdnurl()).ignoreContentType(true).execute().body();
+		//Jsoup.connect(EnvConfig.getJquerycdnurl()).timeout(60*1000).execute().body(); 
+		
+		jquery_content = Jsoup.connect(EnvConfig.getJquerycdnurl()).timeout(60*1000).ignoreContentType(true).execute().body();
+		accessibility_content = Jsoup.connect(EnvConfig.getApplicationcdnurl()).timeout(60*1000).ignoreContentType(true).execute().body();
 	    
 	    js = (JavascriptExecutor) driver;
 	    js.executeScript(accessibility_content);
