@@ -9,17 +9,17 @@ variables:
   CI_APP_NAME: comp-man
   CI_TAG_ROLE: tag_Role_CMS_Application_Server
   CI_DEV_URL: http://dev-comp-man.service.nhsbsa:3000/compman
-  CI_SELENIUM_HUB: http://DPS-COR-SHA-TST-TST01.node.nhsbsa:4444/wd/hub
+  CI_SELENIUM_HUB: http://DPS-COR-SHA-TST-TST00.node.nhsbsa:4444/wd/hub
   POSTGRES_DB: cems_pgdb
   POSTGRES_USER: liquibase_user
   POSTGRES_PASSWORD: runner
 
 test binary:
  stage: Test
- 
+
  script:
    # Test binary step
-   - mvn clean verify -Dcucumber.options="src/test/resources/features/Cloud --tags @smoke --no-dry-run" -Denv=ci -Dbrowser=chrome_grid -Dgridhostname=${CI_SELENIUM_HUB}
+   - mvn -B clean verify -Dcucumber.options="src/test/resources/features/Cloud --tags @smoke --no-dry-run" -Denv=ci -Dbrowser=chrome_grid -Dgridhostname=${CI_SELENIUM_HUB}
  tags:
    - test
 
@@ -28,6 +28,6 @@ regression test binary:
   when: manual
   script:
     # Test binary step
-  - mvn clean verify -Dcucumber.options="src/test/resources/features/Cloud --tags @regression --no-dry-run" -Denv=ci -Dbrowser=chrome_grid -Dgridhostname=${CI_SELENIUM_HUB}
+  - mvn -B clean verify -Dcucumber.options="src/test/resources/features/Cloud --tags @accessibilityaudit --no-dry-run" -Denv=ci -Dbrowser=chrome_grid -Dgridhostname=${CI_SELENIUM_HUB}
   tags:
     - test
