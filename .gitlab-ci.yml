@@ -16,10 +16,10 @@ variables:
 
 test binary:
  stage: Test
- 
+
  script:
    # Test binary step
-   - mvn clean verify -Dcucumber.options="src/test/resources/features/Cloud --tags @smoke --no-dry-run" -Denv=ci -Dbrowser=chrome_grid -Dgridhostname=${CI_SELENIUM_HUB}
+   - mvn -B clean verify -Dcucumber.options="src/test/resources/features/Cloud --tags @smoke --no-dry-run" -Denv=ci -Dbrowser=chrome_grid -Dgridhostname=${CI_SELENIUM_HUB}
  tags:
    - test
 
@@ -28,6 +28,6 @@ regression test binary:
   when: manual
   script:
     # Test binary step
-  - mvn clean verify -Dcucumber.options="src/test/resources/features/Cloud --tags @accessibilityaudit --no-dry-run" -Denv=ci -Dbrowser=chrome_grid -Dgridhostname=${CI_SELENIUM_HUB}
+  - mvn -B clean verify -Dcucumber.options="src/test/resources/features/Cloud --tags @accessibilityaudit --no-dry-run" -Denv=ci -Dbrowser=chrome_grid -Dgridhostname=${CI_SELENIUM_HUB}
   tags:
     - test
