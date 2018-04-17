@@ -48,7 +48,6 @@ import cucumber.api.java.en.When;
 import uk.nhs.nhsbsa.ccchs.config.env.BaseTest;
 import uk.nhs.nhsbsa.ccchs.config.env.Env;
 import uk.nhs.nhsbsa.ccchs.config.env.EnvConfig;
-import uk.nhs.nhsbsa.ccchs.helpers.CommonMethods;
 import uk.nhs.nhsbsa.ccchs.helpers.GenericData;
 import uk.nhs.nhsbsa.ccchs.helpers.PostgreSQLExample;
 import uk.nhs.nhsbsa.ccchs.utils.Utilities;
@@ -62,7 +61,6 @@ import uk.nhs.nhsbsa.ccchs.views.CreateNewComplaintDetails;
 public class AccessibilityAuditSteps implements BaseTest
 {
 	
-	CommonMethods commonMethods = new CommonMethods();
 	uk.nhs.nhsbsa.ccchs.config.env.TestBase TestBase;
     
 	private Scenario scenario;
